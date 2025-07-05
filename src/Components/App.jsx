@@ -10,7 +10,7 @@ import wind_icon from "../assets/wind.png";
 
 const App = () => {
   const input = useRef();
-
+  const API_KEY = "cc51a4ecdb00797fb4c995f358e93cc0";
   const [weatherData, setWeatherData] = useState(false);
 
   const allIcons = {
@@ -36,9 +36,7 @@ const App = () => {
       return;
     }
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
-        import.meta.env.VITE_APP_API_ID
-      }`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
       const response = await fetch(url);
       const data = await response.json();
       if (!response.ok) {
